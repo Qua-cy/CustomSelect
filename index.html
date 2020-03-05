@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <title>ES6项目作业</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<div id="wrap">
+    <div class="demo-wrap">
+      <p class="title">自定义select</p>
+      <div class="demo-select">
+        <input type="text" class="input-box" placeholder="未选择">
+      </div>
+
+      <!-- li列表区域 -->
+      <div class="demo-list" id="demo-list">
+        <!-- <div><input type="text" class="search-box" placeholder="搜索" ></div> -->
+
+        <!-- <div class="classfy-list-wrap">
+          <h4 class="class-list-title">构建工具</h4>
+          <ul class="list-item">
+            <li>Babel</li>
+            <li>Webpack</li>
+            <li>Rollup</li>
+          </ul>
+        </div>
+        <div class="classfy-list-wrap">
+          <h4 class="class-list-title">前端框架</h4>
+          <ul class="list-item">
+            <li>Babel</li>
+            <li>Webpack</li>
+            <li>Rollup</li>
+          </ul>
+        </div> -->
+
+
+        <!-- 主要思路 -->
+        <!-- 1、data中每一个类别的格式[{type:'构建工具', name[xxx,xxx]}, {...} ]，保持这种格式可以任意增删数据 -->
+        <!-- 2、data.forEach创建模板字符串。-->
+        <!-- 3、利用innerHTML把模板字符串拼接到demo-list中--> 
+        <!-- 4、搜索筛选时，监听oninput事件，先填充所有li，再把不包含搜索字符的li删除-->
+        <!-- 5、点击li时，把li的文本和index保存进数组，显示之前的值时可以从数组里面取（这里不考虑直接从input框里面取，因为如果这个值被用户手动改变的话，下次显示会显示被改变后的值，显示有误，所以这里考虑把值存进数组，再取。） -->
+        <!-- 6、点击li填充描述文本这里分两种情况，第一种是显示列表后没筛选直接点li，第二种是搜索筛选后再点击li，这里是把所有li的innerText都保存起来，然后根据点击当前的li的innerText在数组里面找该文本再数组的index ，避免筛选之后index会改变的问题-->
+        </div>
+      </div>
+    
+    <div id="desc-wrap" class="desc-wrap">
+      <p>之前的值是 <span id="desc-before">未选择 - undefined</span></p>
+      <p>改变后的值是 <span id="desc-current">Vue - 4</span></p>
+    </div>
+  
+    <div class="native-wrap ">
+      <div class="title">原生select</div>
+      <select>
+        <option value="1" type="构建工具">Babel</option>
+        <option value="2" type="构建工具">Webpack</option>
+        <option value="3" type="构建工具">Rollup</option>
+        <option value="4" type="前端框架">Vue</option>
+        <option value="5" type="前端框架">Angular</option>
+        <option value="6" type="前端框架">React</option>
+        <option value="7" type="前端框架">Nerv</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+  <script type="text/javascript" src="js/data.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script>
+
+   const search = new $Search(data);
+
+  </script>
+</body>
+</html>
